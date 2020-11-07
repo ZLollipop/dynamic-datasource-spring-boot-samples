@@ -1,0 +1,30 @@
+server:
+  port: 8087
+spring:
+  datasource:
+    dynamic:
+      primary: db1
+      datasource:
+        db1:
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/db1?useUnicode=true&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+#          mapper-locations: classpath:com.test.mapper/db1/*.xml
+#          base-package: work.lollipops.multi.datasource.samples.com.test.mapper.db1
+        db2:
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/db2?useUnicode=true&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+#          mapper-locations: classpath:com.test.mapper/db2/*.xml
+#          base-package: work.lollipops.multi.datasource.samples.com.test.mapper.db2
+        db3:
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/db3?useUnicode=true&useSSL=false&allowMultiQueries=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+#          mapper-locations: classpath:com.test.mapper/db3/*.xml
+#          base-package: work.lollipops.multi.datasource.samples.com.test.mapper.db3
+          #hikari:
+          #hikari的单独话的配置

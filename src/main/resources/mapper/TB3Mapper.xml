@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="work.lollipops.mapper.db3.TB3Mapper">
+    <resultMap id="BaseResultMap" type="work.lollipops.model.Tb3">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="f1" jdbcType="INTEGER" property="f1"/>
+        <result column="f2" jdbcType="INTEGER" property="f2"/>
+        <result column="f3" jdbcType="INTEGER" property="f3"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, f1, f2, f3
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from TB3
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+</mapper>
