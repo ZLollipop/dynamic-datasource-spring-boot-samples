@@ -1,0 +1,6 @@
+DELETE FROM TB3;
+
+INSERT INTO TB3 (`f1`, `f2`, `f3`) VALUES
+(3, 3, 3),
+(32, 32, 32),
+(33, 33, 33);

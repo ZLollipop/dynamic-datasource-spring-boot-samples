@@ -8,10 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author zhaohaoren
  */
 @SpringBootApplication
-@MapperScan("com.test.mapper")
+@MapperScan("work.lollipops.mapper")
 public class DynamicDatasourceSpringBootSamplesApplication {
     public static void main(String[] args) {
         SpringApplication.run(DynamicDatasourceSpringBootSamplesApplication.class, args);
     }
-
 }
