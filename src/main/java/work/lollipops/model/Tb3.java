@@ -16,7 +16,8 @@ import java.util.Random;
 @ToString
 public class Tb3 {
 
-    @TableId(type = IdType.AUTO)
+//    @TableLogic
+    @TableId(type = IdType.INPUT)
     private Integer id;
     private Object f1;
     private Integer f2;

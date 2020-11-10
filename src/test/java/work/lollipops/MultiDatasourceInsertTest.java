@@ -10,6 +10,8 @@ import work.lollipops.mapper.db1.TB1Mapper;
 import work.lollipops.mapper.db2.TB2Mapper;
 import work.lollipops.mapper.db3.TB3Mapper;
 import work.lollipops.model.Tb1;
+import work.lollipops.model.Tb2;
+import work.lollipops.model.Tb3;
 import work.lollipops.service.DynamicService;
 
 import java.util.List;
@@ -42,6 +44,9 @@ public class MultiDatasourceInsertTest {
         Tb1 tb1 = Tb1.getRandom(1);
         assertEquals(1, tb1Mapper.insert(tb1));
         assertNotNull(tb1Mapper.selectById(1));
+        Tb2 tb2 = Tb2.getRandom(1);
+        assertEquals(1, tb2Mapper.insert(tb2));
+        assertNotNull(tb2Mapper.selectById(1));
     }
 
     @Test
@@ -61,5 +66,11 @@ public class MultiDatasourceInsertTest {
             e.printStackTrace();
         }
         assertNull(tb1Mapper.getById(100));
+    }
+
+    @Test
+    public void testttt() {
+        List<Tb3> collect = IntStream.rangeClosed(1, 100).mapToObj(Tb3::getRandom).collect(Collectors.toList());
+        tb3Mapper.saveBatch(collect);
     }
 }

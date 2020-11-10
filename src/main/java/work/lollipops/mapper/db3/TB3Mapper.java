@@ -1,8 +1,8 @@
 package work.lollipops.mapper.db3;
 
-import com.baomidou.dynamic.datasource.MyBaseMapper;
-import work.lollipops.model.Tb3;
+import com.baomidou.dynamic.datasource.mapper.MyBaseMapper;
 import org.springframework.stereotype.Repository;
+import work.lollipops.model.Tb3;
 
 import javax.websocket.server.PathParam;
 import java.util.List;

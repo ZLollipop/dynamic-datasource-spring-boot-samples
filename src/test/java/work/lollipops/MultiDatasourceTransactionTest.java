@@ -12,6 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 import work.lollipops.mapper.db1.TB1Mapper;
 import work.lollipops.model.Tb1;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
@@ -35,7 +39,10 @@ public class MultiDatasourceTransactionTest {
     @Transactional(rollbackFor = Exception.class)
     public void testInsertTransaction() {
         tb1Mapper.insert(Tb1.getRandom(2));
-        int i = 1 / 0;
+//        int i = 1 / 0;
+        List<Tb1> collect = IntStream.rangeClosed(40, 50).mapToObj(Tb1::getRandom).collect(Collectors.toList());
+        collect.get(2).setF1("xixi");
+        tb1Mapper.saveBatch(collect);
         tb1Mapper.insert(Tb1.getRandom(3));
     }
 
@@ -46,6 +53,7 @@ public class MultiDatasourceTransactionTest {
         // 如果去除Transactional注解应当为false
         assertNotNull(tb1Mapper.getById(1));
         assertNull(tb1Mapper.getById(2));
+        assertNull(tb1Mapper.getById(41));
         assertNull(tb1Mapper.getById(3));
     }
 
